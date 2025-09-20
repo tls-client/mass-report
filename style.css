@@ -1,0 +1,348 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Whitney', 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', 'Yu Gothic', 'Meiryo', sans-serif;
+    background: #36393f;
+    min-height: 100vh;
+    color: #dcddde;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #2f3136;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffffff;
+    background: #202225;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #5865f2;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #5865f2;
+    font-weight: 600;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #b9bbbe;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-section, .log-section {
+    background: #202225;
+    border-radius: 8px;
+    padding: 24px;
+    border: 1px solid #36393f;
+    box-shadow: 0 1px 0 rgba(4, 4, 5, 0.2), 0 1.5px 0 rgba(6, 6, 7, 0.05), 0 2px 0 rgba(4, 4, 5, 0.05);
+}
+
+.form-section h2, .log-section h2 {
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid #40444b;
+    padding-bottom: 8px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #b9bbbe;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    background: #40444b;
+    border: 1px solid #202225;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #dcddde;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #5865f2;
+    box-shadow: 0 0 0 1px #5865f2;
+}
+
+.form-group textarea {
+    height: 80px;
+    resize: vertical;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+.report-btn {
+    width: 100%;
+    padding: 12px 16px;
+    background: #5865f2;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.17s ease, opacity 0.17s ease;
+    text-transform: none;
+}
+
+.report-btn:hover {
+    background: #4752c4;
+}
+
+.report-btn:disabled {
+    background: #4f545c;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+#logContainer {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #40444b;
+    border-radius: 4px;
+    padding: 8px 12px;
+    background: #36393f;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.375;
+    color: #dcddde;
+}
+
+.log-entry {
+    margin-bottom: 4px;
+    padding: 4px 6px;
+    border-radius: 3px;
+    border-left: 3px solid #40444b;
+    background: rgba(79, 84, 92, 0.32);
+}
+
+.log-success {
+    background: rgba(67, 181, 129, 0.1);
+    border-left-color: #43b581;
+    color: #43b581;
+}
+
+.log-error {
+    background: rgba(240, 71, 71, 0.1);
+    border-left-color: #f04747;
+    color: #f04747;
+}
+
+.log-info {
+    background: rgba(88, 101, 242, 0.1);
+    border-left-color: #5865f2;
+    color: #00b0f4;
+}
+
+.log-warning {
+    background: rgba(250, 166, 26, 0.1);
+    border-left-color: #faa61a;
+    color: #faa61a;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px 0;
+    padding: 16px;
+    background: #36393f;
+    border-radius: 4px;
+    border: 1px solid #40444b;
+}
+
+.stat-item {
+    text-align: center;
+    flex: 1;
+}
+
+.stat-label {
+    display: block;
+    font-size: 11px;
+    color: #72767d;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.stat-value {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #40444b;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#progressFill {
+    height: 100%;
+    background: #5865f2;
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 4px;
+}
+
+/* スクロールバーのスタイル */
+#logContainer::-webkit-scrollbar {
+    width: 14px;
+}
+
+#logContainer::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#logContainer::-webkit-scrollbar-thumb {
+    background: #202225;
+    border: 3px solid #36393f;
+    border-radius: 7px;
+}
+
+#logContainer::-webkit-scrollbar-thumb:hover {
+    background: #4f545c;
+}
+
+/* セレクトボックスのスタイル */
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 8px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+/* プレースホルダーの色 */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #72767d;
+}
+
+/* フォーカス時のアニメーション */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    transform: none;
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.log-entry {
+    animation: fadeIn 0.3s ease;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .container {
+        padding: 12px;
+    }
+    
+    .form-section, .log-section {
+        padding: 16px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .stat-item {
+        padding: 8px;
+        background: #202225;
+        border-radius: 4px;
+        border: 1px solid #40444b;
+    }
+}
+
+/* ホバー効果 */
+.form-section:hover, .log-section:hover {
+    border-color: #5865f2;
+    transition: border-color 0.2s ease;
+}
+
+/* 成功/失敗カウンターの色分け */
+#successCount {
+    color: #43b581;
+}
+
+#failCount {
+    color: #f04747;
+}
+
+/* ボタンのアクティブ状態 */
+.report-btn:active {
+    transform: scale(0.98);
+}
+
+/* セレクションのスタイル */
+::selection {
+    background: #5865f2;
+    color: #ffffff;
+}
